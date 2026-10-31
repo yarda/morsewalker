@@ -83,11 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const modeRadios = document.querySelectorAll('input[name="mode"]');
   const yourCallsign = document.getElementById('yourCallsign');
   const yourName = document.getElementById('yourName');
-  const yourState = document.getElementById("yourState"); // Added yourState
+  const yourState = document.getElementById('yourState'); // Added yourState
   const yourSpeed = document.getElementById('yourSpeed');
   const yourSidetone = document.getElementById('yourSidetone');
   const yourVolume = document.getElementById('yourVolume');
-  const keyerMode = document.getElementById("keyerMode");
+  const keyerMode = document.getElementById('keyerMode');
 
   // Event Listeners
   cqButton.addEventListener('click', () => {
@@ -122,13 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
   enableFarnsworthCheckbox.addEventListener('change', () => {
     farnsworthSpeedInput.disabled = !enableFarnsworthCheckbox.checked;
     if (enableFarnsworthCheckbox.checked) {
-      morseInput.updateSettings({ farnsworth: parseInt(farnsworthSpeedInput.value) });
+      morseInput.updateSettings({
+        farnsworth: parseInt(farnsworthSpeedInput.value),
+      });
     }
   });
 
   farnsworthSpeedInput.addEventListener('input', () => {
     if (enableFarnsworthCheckbox.checked) {
-      morseInput.updateSettings({ farnsworth: parseInt(farnsworthSpeedInput.value) });
+      morseInput.updateSettings({
+        farnsworth: parseInt(farnsworthSpeedInput.value),
+      });
     }
   });
 
@@ -221,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     yourSpeed: 'yourSpeed',
     yourSidetone: 'yourSidetone',
     yourVolume: 'yourVolume',
-    keyerMode: "keyerMode"
+    keyerMode: 'keyerMode',
   };
 
   /**
@@ -265,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
   yourVolume.addEventListener('input', () => {
     localStorage.setItem(keys.yourVolume, yourVolume.value);
   });
-  keyerMode.addEventListener("change", () => {
+  keyerMode.addEventListener('change', () => {
     localStorage.setItem(keys.keyerMode, keyerMode.value);
   });
 
